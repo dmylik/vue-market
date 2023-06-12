@@ -4,7 +4,8 @@
             Test
         </h1>
         <p>{{text}}</p>
-        <input :value="text"  @input="textAdd"/>
+        <input :value="text.toLocaleLowerCase()"  @input="textAdd"/>
+        <button @click="clearText">Clear</button>
     </div>
 </template>
 
@@ -13,12 +14,15 @@
         name: "MarketComponents",
         data(){
             return{
-                text: "Start"
+                text: "START"
             }
         },
         methods:{
             textAdd(event){
                 this.text= event.target.value.toUpperCase()
+            },
+            clearText(){
+                this.text = "";
             }
         }
     }
